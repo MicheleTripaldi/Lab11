@@ -1,5 +1,8 @@
 import flet as ft
 
+from database.DAO import DAO
+from model.model import Model
+
 
 class Controller:
     def __init__(self, view, model):
@@ -11,7 +14,16 @@ class Controller:
         self._listColor = []
 
     def fillDD(self):
-        pass
+        anno = [2015,2016,2017,2018]
+        for a in anno:
+            self._view._ddyear.options.append(ft.dropdown.Option(a))
+
+        colori = DAO.getAllColors()
+        for c in colori:
+            self._view._ddcolor.options.append(ft.dropdown.Option(c))
+
+
+
 
 
     def handle_graph(self, e):

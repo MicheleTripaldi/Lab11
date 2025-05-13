@@ -15,6 +15,14 @@ class Model:
         self._grafo.clear()
         self._grafo.add_nodes_from(self._product)
 
+    def allEdges(self,colore):
+        allEdges = DAO.getAllEdges(colore)
+        for edges in allEdges:
+            u = self._idMapProduct[edges[0]]
+            v = self._idMapProduct[edges[1]]
+            peso = self._idMapProduct[ edges[2]]
+            self._grafo.add_edge(u,v,weight=peso)
+
 
 
 
